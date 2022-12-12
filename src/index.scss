@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.scrolling-wrapper {
+  -webkit-overflow-scrolling: touch;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .card {
+    flex: 0 0 auto;
+  }
+}
+
+.trapezoid {
+  @apply flex justify-center w-2/3 h-40 items-center p-3 relative;
+}
+
+.trapezoid::before {
+  @apply bg-primary top-0 right-0 left-0 bottom-0 absolute rounded-2xl;
+  content: "";
+  transform: perspective(450px) rotateX(-20deg);
+}
+
+.dropdown {
+  @apply absolute;
+
+  transition: all 0.3s ease-in-out;
+}
+
+.dropdown:after {
+  @apply shadow-2xl absolute left-1/2 -bottom-3 w-0  h-0 border-x-[15px] border-x-transparent border-t-[15px] border-t-white;
+  content: "";
+  transform: translateX(-50%);
+}
+
+.g-input:checked + div {
+  @apply border border-secondary;
+}
